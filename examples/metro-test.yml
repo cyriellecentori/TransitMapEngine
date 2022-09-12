@@ -2,12 +2,12 @@ scale: [50, 50]
 width: 0.5
 stop-size: 1.5
 font:
-   path: Louis George Cafe.ttf
+   path: examples/Louis George Cafe.ttf
    size: 50
    color: [0,0,0]
-output: "metro.png"
+output: examples/metro.png
 
-map: map.png
+map: examples/map.png
 
 stops: 
    - position: [3, 95]
