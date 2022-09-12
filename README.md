@@ -25,6 +25,10 @@ output: final-image.png # Output file
 map: map-image.png # Path to the map image (cf. Image section)
 
 stops: # Array containing all stations or stops, see examples next
+   - position: [10, 23] # Position in squares (you can report the position of the pixel in the map image on which you want to add the stop). If the stop is large, your position field should look like something like [10, 23, 12, 25] ([x1, y1, x2, y2]).
+     type: single # One of the types above
+     name: Stadium # The name of the station. You can add another line if you surround the name with "" and separate the two lines with \n
+     name-placement: [1, 0] # The position of the name, in squares, relative to the center of the stop. More details next.
 ```
 
 #### Stops (or stations)
