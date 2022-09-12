@@ -1,0 +1,742 @@
+scale: [50, 50]
+width: 0.5
+stop-size: 1.5
+font:
+   path: Louis George Cafe.ttf
+   size: 50
+   color: [0,0,0]
+output: "metro.png"
+
+map: map.png
+
+stops: 
+   - position: [3, 95]
+     type: terminus
+     name: Vezin - Gare
+     name-placement: [0, -1]
+   - position: [8, 95]
+     type: single
+     name: Agriculture
+     name-placement: [0, 1]
+   - position: [13, 95]
+     type: single
+     name: Trois Marches
+     name-placement: [0, -1]
+   - position: [18, 95]
+     type: single
+     name: Parc Monier
+     name-placement: [0, 1]
+   - position: [23, 95]
+     type: single
+     name: Roberdière
+     name-placement: [0, -1]
+   - position: [28, 95]
+     type: single
+     name: "Roazhon Park\nPorte de Lorient"
+     name-placement: [0, 1]
+   - position: [33, 95]
+     type: transfer
+     name: Moulin du Comte
+     name-placement: [1, -1]
+   - position: [33, 91]
+     type: single
+     name: Atalante - Champeaux
+     name-placement: [-1, 0]
+   - position: [33, 87]
+     type: single
+     name: Maison de l’Agriculture
+     name-placement: [-1, 0]
+   - position: [33, 83, 35, 84]
+     type: large
+     name: Porte de Brest
+     name-placement: [-1, 0]
+   - position: [45, 95]
+     type: transfer
+     name: Marbeuf
+     name-placement: [-1, 1]
+   - position: [45, 102]
+     type: single
+     name: Sainte-Anne
+     name-placement: [-1, 0]
+   - position: [45, 82]
+     type: single
+     name: Centre Condorcet
+     name-placement: [-1, 0]
+   - position: [37, 87]
+     type: single
+     name: Agrocampus
+     name-placement: [1, 0]
+   - position: [57, 102]
+     type: single
+     name: "Jardin de la\nConfluence"
+     name-placement: [0, 1]
+   - position: [61, 102]
+     type: transfer
+     name: François Mittérand
+     name-placement: [1, 1]
+   - position: [50, 95]
+     type: single
+     name: Maison Diocésaine
+     name-placement: [0, -1]
+   - position: [55, 95]
+     type: single
+     name: Ponant
+     name-placement: [0, 1]
+   - position: [64, 95]
+     type: single
+     name: Square du Tourniquet
+     name-placement: [0, -1]
+   - position: [72, 101, 73, 103]
+     type: large
+     name: Pont de Bretagne
+     name-placement: [-1, -1]
+   - position: [45, 113]
+     type: single
+     name: Voltaire
+     name-placement: [-1, 0]
+   - position: [51, 117]
+     type: single
+     name: Huguenoterie
+     name-placement: [0, -1]
+   - position: [61, 110]
+     type: single
+     name: Mabilais
+     name-placement: [-1, 0]
+   - position: [61, 125]
+     type: transfer
+     name: Jules Verne
+     name-placement: [-1, 0]
+   - position: [68, 132, 69, 134]
+     type: large
+     name: Gare de Mermoz
+     name-placement: [-1, 1]
+   - position: [69, 137]
+     type: single
+     name: Saint-Yves
+     name-placement: [-1, 0]
+   - position: [69, 141]
+     type: single
+     name: Nantes
+     name-placement: [-1, 0]
+   - position: [69, 145]
+     type: single
+     name: Félix Eboué
+     name-placement: [-1, 0]
+   - position: [69, 149]
+     type: terminus
+     name: Parc de Bréquigny
+     name-placement: [-1, 0]
+   - position: [73, 133]
+     type: single
+     name: "Le Guen de\nKerangal"
+     name-placement: [0, -1]
+   - position: [78, 133]
+     type: single
+     name: Gendarmerie
+     name-placement: [0, 1]
+   - position: [82, 133]
+     type: transfer
+     name: "Clémenceau\nLa Boulais"
+     name-placement: [1, -1]
+   - position: [82, 121, 84, 122]
+     type: large
+     name: Gares
+     name-placement: [-1, 0] 
+   - position: [81, 113, 83, 114]
+     type: large
+     name: Champ de Mars
+     name-placement: [-1, 0]
+   - position: [72, 110]
+     type: single
+     name: Cité Judiciaire
+     name-placement: [-1, 0]
+   - position: [72, 106]
+     type: single
+     name: La Tour d’Auvergne
+     name-placement: [-1, 0]
+   - position: [82, 102, 84, 103]
+     type: large
+     name: République
+     name-placement: [-1, 1]
+   - position: [88, 109]
+     type: single
+     name: Émile Zola
+     name-placement: [1, 0]
+   - position: [82, 139]
+     type: single
+     name: Argonautes
+     name-placement: [-1, 0]
+   - position: [82, 144]
+     type: terminus
+     name: Porte de Nantes
+     name-placement: [-1, 0]
+   - position: [33, 107]
+     type: single
+     name: Clapot
+     name-placement: [-1, 0]
+   - position: [33, 113]
+     type: single
+     name: Buffon
+     name-placement: [-1, 0]
+   - position: [33, 126]
+     type: single
+     name: La Sagesse
+     name-placement: [-1, 0]
+   - position: [33, 135]
+     type: terminus
+     name: Parc de la Guérinais
+     name-placement: [-1, 0]
+   - position: [72, 89]
+     type: single
+     name: Les Lices
+     name-placement: [-1, 0]
+   - position: [69, 85]
+     type: single
+     name: Vieux Saint-Étienne
+     name-placement: [-1, 0]
+   - position: [82, 93]
+     type: transfer
+     name: "Parlement\nde Bretagne"
+     name-placement: [-1, 0]
+   - position: [71, 82]
+     type: transfer
+     name: Square Tannou
+     name-placement: [-1.5, 0.25]
+   - position: [57, 82]
+     type: single
+     name: Anatole France
+     name-placement: [0, 1]
+   - position: [51, 80]
+     type: single
+     name: Pontchaillou
+     name-placement: [1, 0]
+   - position: [88, 82]
+     type: transfer
+     name: Lesage - Sévigné
+     name-placement: [-0.8, 0.5]
+   - position: [78, 82]
+     type: single
+     name: Hôtel Dieu
+     name-placement: [0, -1]
+   - position: [88, 86]
+     type: single
+     name: Préfecture
+     name-placement: [1, 0]
+   - position: [78, 89]
+     type: single
+     name: Motte Fablet
+     name-placement: [1, 0]
+   - position: [74, 85]
+     type: single
+     name: "Notre-Dame\nde Bonne Nouvelle"
+     name-placement: [1, 0]
+   - position: [90, 102]
+     type: single
+     name: Quai Dujardin
+     name-placement: [0, -1]
+   - position: [93, 121, 94, 123]
+     type: large
+     name: Laënnec
+     name-placement: [0, -1]
+   - position: [104, 129, 106, 130]
+     type: large
+     name: Saint-Hélier
+     name-placement: [-1, -1]
+   - position: [101, 133, 103, 135]
+     type: large
+     name: "Marché de\nSainte-Thérèse"
+     name-placement: [-1, 1]
+   - position: [101, 133]
+     type: terminus dot
+   - position: [102, 134]
+     type: terminus dot
+   - position: [88, 133]
+     type: single
+     name: "Sainte-Thérèse\nÉcoles"
+     name-placement: [0, 1]
+   - position: [110, 137]
+     type: single
+     name: "Bahon"
+     name-placement: [-1, 0]
+   - position: [113, 140]
+     type: single
+     name: Saint-Joseph
+     name-placement: [-1, 0]
+   - position: [116, 143]
+     type: single
+     name: Grimault
+     name-placement: [-1, 0]
+   - position: [114, 134]
+     type: single
+     name: Bourgois
+     name-placement: [0, -1]
+   - position: [122, 144]
+     type: single
+     name: Ronceray
+     name-placement: [1, 0]
+   - position: [117, 149]
+     type: single
+     name: Institut Santé Ouest
+     name-placement: [1, 0]
+   - position: [119, 146, 121, 147]
+     type: large
+     name: Porte d’Angers
+     name-placement: [2, 0]
+   - position: [120, 146]
+     type: terminus dot
+   - position: [107, 134]
+     type: transfer
+     name: "Franklin\nRoosevelt"
+     name-placement: [0.5, -0.5]
+   - position: [111, 125]
+     type: single
+     name: Jean Coquelin
+     name-placement: [-1, 0]
+   - position: [114, 106]
+     type: single
+     name: Robidou
+     name-placement: [-1, 0]
+   - position: [114, 102]
+     type: transfer
+     name: "Pont\nde Strasbourg"
+     name-placement: [1, 0]
+   - position: [111, 128]
+     type: single
+     name: Serpette
+     name-placement: [1, 0]
+   - position: [104, 102]
+     type: single
+     name: Pont de Châteaudun
+     name-placement: [0, -1]
+   - position: [114, 82]
+     type: transfer
+     name: Paris
+     name-placement: [0.5, -0.5]
+   - position: [104, 82]
+     type: single
+     name: Gutemberg
+     name-placement: [0, -1]
+   - position: [95, 82]
+     type: single
+     name: Thabor
+     name-placement: [0, 1]
+   - position: [111, 150, 113, 151]
+     type: large
+     name: Hôpital Sud
+     name-placement: [0, 1]
+   - position: [111, 150]
+     type: terminus dot
+   - position: [112, 150]
+     type: terminus dot
+   - position: [104, 150]
+     type: single
+     name: Torigné
+     name-placement: [0, 1]
+   - position: [101, 146]
+     type: single
+     name: Pays-Bas
+     name-placement: [-1, 0]
+   - position: [101, 139]
+     type: single
+     name: La Binquenais
+     name-placement: [-1, 0]
+   - position: [114, 78]
+     type: single
+     name: Metz
+     name-placement: [-1, 0]
+   - position: [114, 74]
+     type: transfer
+     name: "Stade\nCourtemanche"
+     name-placement: [1, 0]
+   - position: [97, 74]
+     type: single
+     name: Fac de Droit
+     name-placement: [0, -1]
+   - position: [106, 74]
+     type: single
+     name: Fougères
+     name-placement: [0, 1]
+   - position: [94, 67]
+     type: single
+     name: Clotilde Vautier
+     name-placement: [-1, 0]
+   - position: [79, 64, 80, 68]
+     type: large
+     name: Sarzeau
+     name-placement: [-0.5, -0.5]
+   - position: [79, 67]
+     type: terminus dot
+   - position: [99, 64]
+     type: single
+     name: Saint-Laurent
+     name-placement: [0, -1]
+   - position: [114, 64]
+     type: single
+     name: Europe
+     name-placement: [0, -1]
+   - position: [118, 70]
+     type: single
+     name: Maurepas
+     name-placement: [-1, 0]
+   - position: [121, 67, 123, 68]
+     type: large
+     name: Joliot-Curie
+     name-placement: [2, 0]
+   - position: [121, 64, 123, 65]
+     type: large
+     name: "Gayeulles\nSud"
+     name-placement: [-0.5, -0.5]
+   - position: [122, 64]
+     type: terminus dot
+   - position: [69, 65]
+     type: single
+     name: La Bellangerais
+     name-placement: [0, -1]
+   - position: [59, 75]
+     type: single
+     name: École du Professorat
+     name-placement: [1, 0]
+   - position: [59, 72]
+     type: single
+     name: Square des Trois Rois
+     name-placement: [1, 0]
+   - position: [59, 69]
+     type: transfer
+     name: "Boulevard\nd’Armorique"
+     name-placement: [-0.5, 0.5]
+   - position: [51, 77]
+     type: single
+     name: Coëtlogon
+     name-placement: [1, 0]
+   - position: [51, 69]
+     type: transfer
+     name: Hélène Basch
+     name-placement: [0.5, -0.5]
+   - position: [44, 69, 46, 70]
+     type: large
+     name: Alsace
+     name-placement: [-1, 0]
+   - position: [44, 73, 46, 74]
+     type: large
+     name: Villejean
+     name-placement: [-0.5, 0.5]
+   - position: [48, 69]
+     type: single
+     name: "Maison\ndes\nSports"
+     name-placement: [0, 1]
+   - position: [38, 73]
+     type: single
+     name: Churchill
+     name-placement: [0, -1]
+   - position: [33, 74, 35, 75]
+     type: large
+     name: Square du Poitou
+     name-placement: [-1, 0]
+   - position: [34, 74]
+     type: terminus dot
+   - position: [33, 78, 35, 79]
+     type: large
+     name: J.F Kennedy
+     name-placement: [-1, 0]
+   - position: [45, 76]
+     type: single
+     name: Berger
+     name-placement: [-1, 0]
+   - position: [45, 65]
+     type: single
+     name: Askoria
+     name-placement: [-1, 0]
+   - position: [45, 61]
+     type: single
+     name: Océanes
+     name-placement: [-1, 0]
+   - position: [45, 57]
+     type: terminus
+     name: Parc de Beauregard
+     name-placement: [-1, 0]
+   - position: [51, 65]
+     type: single
+     name: "Art\nCompt."
+     name-placement: [1, 0]
+   - position: [51, 61]
+     type: single
+     name: Robiquette
+     name-placement: [1, 0]
+   - position: [51, 57]
+     type: single
+     name: "Grand\nQuartier"
+     name-placement: [1, 0]
+   - position: [51, 53]
+     type: terminus
+     name: "Les Trois Épines"
+     name-placement: [-1, 0]
+   - position: [59, 64]
+     type: single
+     name: "Pierre\nMendès-France"
+     name-placement: [1, 0]
+   - position: [59, 59]
+     type: single
+     name: Chesnay Beauregard
+     name-placement: [1, 0]
+   - position: [59, 54]
+     type: single
+     name: Porte de Saint-Malo
+     name-placement: [1, 0]
+   - position: [59, 44]
+     type: single
+     name: Saint-Grégoire - Hôpital
+     name-placement: [1, 0]
+   - position: [59, 40]
+     type: single
+     name: Le Haut Trait
+     name-placement: [1, 0]
+   - position: [59, 36]
+     type: single
+     name: Forge
+     name-placement: [1, 0]
+   - position: [59, 32]
+     type: single
+     name: De Gaulle
+     name-placement: [1, 0]
+   - position: [55, 32]
+     type: single
+     name: Paul-Émile Victor
+     name-placement: [0, -1]
+   - position: [50, 32]
+     type: single
+     name: Alphasis
+     name-placement: [0, 1]
+   - position: [40, 32]
+     type: terminus
+     name: Porte de Montgermont
+     name-placement: [-1, 0]
+   - position: [117, 126]
+     type: single
+     name: "Cimetière\nde l’Est"
+     name-placement: [0, -1]
+   - position: [122, 94]
+     type: transfer
+     name: François Château
+     name-placement: [1, 0]
+   - position: [122, 82]
+     type: transfer
+     name: CHS
+     name-placement: [-0.5, -0.5]
+   - position: [130, 82]
+     type: transfer
+     name: Les Préales
+     name-placement: [-0.5, 0.5]
+   - position: [118, 82]
+     type: single
+     name: "Place\nd’honneur"
+     name-placement: [0, 1]
+   - position: [122, 78]
+     type: single
+     name: Vitré Foulon
+     name-placement: [1, 0]
+   - position: [122, 72]
+     type: single
+     name: Chateaubriand
+     name-placement: [1, 0]
+   - position: [79, 61]
+     type: single
+     name: Morbihan
+     name-placement: [1, 0]
+   - position: [79, 57]
+     type: single
+     name: Monts d’Arrée
+     name-placement: [1, 0]
+   - position: [79, 53]
+     type: single
+     name: Kerfleury
+     name-placement: [1, 0]
+   - position: [79, 49]
+     type: terminus
+     name: Couesnon
+     name-placement: [1, 0]
+   - position: [121, 60]
+     type: single
+     name: "Gayeulles\nJardins"
+     name-placement: [1, 0]
+   - position: [121, 56]
+     type: terminus
+     name: "Les Petites Cours"
+     name-placement: [1, 0]
+   - position: [131, 77]
+     type: single
+     name: Jean Perrin
+     name-placement: [1, 0]
+   - position: [133, 75]
+     type: single
+     name: Beaulieu Centre
+     name-placement: [1, 0]
+   - position: [135, 73]
+     type: single
+     name: D’Alembert
+     name-placement: [1, 0]
+   - position: [137, 71]
+     type: single
+     name: Centre Médical
+     name-placement: [-1, 0]
+   - position: [139, 69]
+     type: single
+     name: Louis Guilloux
+     name-placement: [-1, 0]
+   - position: [145, 68]
+     type: transfer
+     name: Atalante
+     name-placement: [0.5, 0.5]
+   - position: [150, 68]
+     type: terminus
+     name: Cesson - Alliés
+     name-placement: [0, -1]
+   - position: [129, 64]
+     type: single
+     name: Pâtis Tatelin
+     name-placement: [0, -1]
+   - position: [140, 64]
+     type: single
+     name: Saint-Sulpice
+     name-placement: [0, -1]
+   - position: [135, 82]
+     type: single
+     name: Touraudais
+     name-placement: [0, -1]
+   - position: [140, 82]
+     type: single
+     name: Rosiers
+     name-placement: [0, -1]
+   - position: [145, 82, 146, 84]
+     type: large
+     name: Hublais
+     name-placement: [-1, 1]
+   - position: [145, 72]
+     type: single
+     name: École Centrale
+     name-placement: [1, 0]
+   - position: [145, 76]
+     type: single
+     name: CSIC
+     name-placement: [1, 0]
+   - position: [145, 79]
+     type: single
+     name: Alliés
+     name-placement: [1, 0]
+   - position: [151, 82, 152, 84]
+     type: large
+     name: Champagné
+     name-placement: [1, 1]
+   - position: [148, 93]
+     type: single
+     name: Cesson - Gare
+     name-placement: [1, 0]
+   - position: [156, 80]
+     type: single
+     name: Arcade
+     name-placement: [-1, 0]
+   - position: [156, 77]
+     type: single
+     name: Jean Boucher
+     name-placement: [-1, 0]
+   - position: [156, 74]
+     type: single
+     name: Bourgchevreuil
+     name-placement: [-1, 0]
+   - position: [156, 70]
+     type: single
+     name: Placis Vert
+     name-placement: [-1, 0]
+   - position: [156, 64]
+     type: single
+     name: Cimetière
+     name-placement: [-1, 0]
+   - position: [156, 58]
+     type: terminus
+     name: Le Manoir
+     name-placement: [-1, 0]
+   - position: [122, 105]
+     type: single
+     name: Chardonnet
+     name-placement: [1, 0]
+   - position: [122, 126]
+     type: transfer
+     name: Technicentre
+     name-placement: [0.5, -0.5]
+   - position: [122, 131]
+     type: single
+     name: Rivière
+     name-placement: [1, 0]
+   - position: [121, 139, 124, 140]
+     type: large
+     name: Parc du Landry
+     name-placement: [3, 0]
+   - position: [123, 139]
+     type: terminus dot
+   - position: [125, 142]
+     type: single
+     name: CARSAT
+     name-placement: [1, 0]
+   - position: [132, 149]
+     type: single
+     name: Poterie
+     name-placement: [1, 0]
+   - position: [138, 155]
+     type: single
+     name: Loges
+     name-placement: [-1, 0]
+   - position: [143, 155]
+     type: single
+     name: "Chantepie\nCentre"
+     name-placement: [0, -1]
+   - position: [148, 155]
+     type: terminus
+     name: "Chantepie\nRue du Parc"
+     name-placement: [1, 0]
+   - position: [142, 96]
+     type: single
+     name: LGV
+     name-placement: [1, 0]
+   - position: [139, 99]
+     type: single
+     name: Hauts de Bray
+     name-placement: [1, 0]
+   - position: [136, 102]
+     type: single
+     name: Bray
+     name-placement: [1, 0]
+   - position: [132, 109]
+     type: single
+     name: Charmilles
+     name-placement: [1, 0]
+   - position: [132, 122]
+     type: single
+     name: Erbonière
+     name-placement: [1, 0]
+   - position: [132, 126]
+     type: transfer
+     name: Pré Garel
+     name-placement: [1, 0]
+   - position: [132, 130]
+     type: single
+     name: Tremblaie
+     name-placement: [-1, 0]
+   - position: [135, 129]
+     type: single
+     name: Écopôle Sud-Est
+     name-placement: [1, 0]
+   - position: [138, 132]
+     type: single
+     name: Landelles
+     name-placement: [1, 0]
+   - position: [141, 135]
+     type: terminus
+     name: Le Chêne Morand
+     name-placement: [1, 0]
+   - position: [79, 74]
+     type: single
+     name: Saint-Martin
+     name-placement: [1, 0]
+   - position: [101, 131]
+     type: single
+     name: Leray
+     name-placement: [-1, 0]
