@@ -2,12 +2,12 @@ scale: [50, 50]
 width: 0.5
 stop-size: 1.5
 font:
-   path: examples/Louis George Cafe.ttf
+   path: examples/Rennes/Louis George Cafe.ttf
    size: 50
    color: [0,0,0]
-output: examples/metro.png
+output: examples/Rennes/metro.png
 
-map: examples/map.png
+map: examples/Rennes/map.png
 
 stops: 
    - position: [3, 95]
@@ -106,10 +106,12 @@ stops:
      type: transfer
      name: Jules Verne
      name-placement: [-1, 0]
-   - position: [68, 132, 69, 134]
+   - position: [68, 132, 69, 135]
      type: large
      name: Gare de Mermoz
-     name-placement: [-1, 1]
+     name-placement: [-1.5, 0]
+   - position: [68, 134]
+     type: terminus dot
    - position: [69, 137]
      type: single
      name: Saint-Yves
@@ -182,8 +184,8 @@ stops:
      type: single
      name: La Sagesse
      name-placement: [-1, 0]
-   - position: [33, 135]
-     type: terminus
+   - position: [33, 134]
+     type: single
      name: Parc de la Guérinais
      name-placement: [-1, 0]
    - position: [72, 89]
@@ -278,11 +280,15 @@ stops:
      type: single
      name: Institut Santé Ouest
      name-placement: [1, 0]
-   - position: [119, 146, 121, 147]
+   - position: [119, 146, 121, 148]
      type: large
      name: Porte d’Angers
      name-placement: [2, 0]
    - position: [120, 146]
+     type: terminus dot
+   - position: [119, 146]
+     type: terminus dot
+   - position: [119, 147]
      type: terminus dot
    - position: [107, 134]
      type: transfer
@@ -320,8 +326,8 @@ stops:
      type: single
      name: Thabor
      name-placement: [0, 1]
-   - position: [111, 150, 113, 151]
-     type: large
+   - position: [111, 150]
+     type: single
      name: Hôpital Sud
      name-placement: [0, 1]
    - position: [111, 150]
@@ -740,3 +746,11 @@ stops:
      type: single
      name: Leray
      name-placement: [-1, 0]
+   - position: [39, 134]
+     type: single
+     name: Quartier Stéphan
+     name-placement: [0, -1]
+   - position: [57, 134]
+     type: single
+     name: Les Dominos
+     name-placement: [0, 1]

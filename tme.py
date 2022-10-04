@@ -16,7 +16,7 @@ if len(sys.argv) != 2:
 	print("This program takes one argument: the name of the yaml data file used to build the map. No more, no less.")
 	exit(1)
 
-data_file = open(sys.argv[1], "r")
+data_file = open(sys.argv[1], "r", encoding="utf-8")
 data = yaml.safe_load(data_file)
 scale = ((data["scale"][0] // 2) * 2, (data["scale"][1] // 2) * 2) # No center square so the center is the real center
 map_tab = []
@@ -104,7 +104,7 @@ print("Generating map…")
 
 for x in range(map_size[0]):
 	for y in range(map_size[1]):
-		percent = round((((map_size[0] * y - 1) + x) / (map_size[1] * map_size[0])) * 100)
+		percent = round((((map_size[0] * x - 1) + y) / (map_size[1] * map_size[0])) * 100)
 		print(loading_bar(percent, os.get_terminal_size()[0] // 4, "#"), f"- {percent:3d} %", end = '\r')
 		line = map_tab[y][x]
 		if x > 0 and y > 0 and x < map_size[0] - 1 and y < map_size[1] - 1 and line != 0:
