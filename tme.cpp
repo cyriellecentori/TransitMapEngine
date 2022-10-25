@@ -6,7 +6,12 @@
 #include <SFML/Graphics/Text.hpp>
 #include <cmath>
 
+#if defined(__linux__)
 #include <sys/ioctl.h>
+#elif defined(_WIN32)
+#include <windows.h>
+#endif
+
 #include <stdio.h>
 #include <unistd.h>
 #include <iomanip>
@@ -66,9 +71,18 @@ Main::Main(std::string const& file)
 	// Rounds to the nearest even number to have centers in a corner of a pixel
 	scale = sf::Vector2f(((data["scale"][0].as<int>()) / 2) * 2, ((data["scale"][1].as<int>()) / 2) * 2);
 	
+	#if defined(__linux__)
 	struct winsize w;
     	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-	
+	int colnum = w.ws_col / 4;
+	#elif defined(_WIN32)
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+	int colnum = (csbi.srWindow.Right - csbi.srWindow.Left + 1) / 4;
+	#else
+	int colnum = 10;
+	#endif
+
 	std::cout << "Loading lines map…" << std::endl;
 	
 	sf::Image img = sf::Image();
@@ -83,7 +97,7 @@ Main::Main(std::string const& file)
 			const sf::Color& c = img.getPixel(x, y);
 			
 			int percent = round((((img.getSize().x * x - 1) + y) / (img.getSize().y * img.getSize().x)) * 100);
-			std::cout << loading_bar(percent, w.ws_col / 4, '#') << " – " << std::setw(3) << percent << " %\r";
+			std::cout << loading_bar(percent, colnum, '#') << " – " << std::setw(3) << percent << " %\r";
 			
 			int n = 0;
 			if(c == sf::Color::Black) {
@@ -98,7 +112,7 @@ Main::Main(std::string const& file)
 		}
 	}
 	
-	std::cout << loading_bar(100, w.ws_col / 4, '#') << " – 100 % – Done!" << std::endl;
+	std::cout << loading_bar(100, colnum, '#') << " – 100 % – Done!" << std::endl;
 	
 	std::cout << lines.size() << " lines detected. Loading styles." << std::endl;
 	
@@ -138,7 +152,7 @@ Main::Main(std::string const& file)
 	for(int x = 0; x < img.getSize().x; x++) {
 		for(int y = 0; y < img.getSize().y; y++) {
 			int percent = round((((img.getSize().x * x - 1) + y) / (img.getSize().y * img.getSize().x)) * 100);
-			std::cout << loading_bar(percent, w.ws_col / 4, '#') << " – " << std::setw(3) << percent << " %\r";
+			std::cout << loading_bar(percent, colnum, '#') << " – " << std::setw(3) << percent << " %\r";
 			
 			sf::Vector2f vec_pos = sf::Vector2f(x, y);
 			int line = map[x][y];
@@ -210,7 +224,7 @@ Main::Main(std::string const& file)
 		}
 	}
 	
-	std::cout << loading_bar(100, w.ws_col / 4, '#') << " – 100 % – Done!" << std::endl;
+	std::cout << loading_bar(100, colnum, '#') << " – 100 % – Done!" << std::endl;
 	
 	std::cout << "Adding stops…" << std::endl;
 	
@@ -220,7 +234,7 @@ Main::Main(std::string const& file)
 	for(YAML::Node stop : stops) {
 		int percent = round((itor / stops.size()) * 100);
 		itor++;
-		std::cout << loading_bar(percent, w.ws_col / 4, '#') << " – " << std::setw(3) << percent << " %\r";
+		std::cout << loading_bar(percent, colnum, '#') << " – " << std::setw(3) << percent << " %\r";
 		
 		std::string stop_type = stop["type"].as<std::string>();
 		sf::Vector2f stop_pos = sf::Vector2f(stop["position"][0].as<int>(), stop["position"][1].as<int>());
@@ -285,7 +299,7 @@ Main::Main(std::string const& file)
 		
 	}
 	
-	std::cout << loading_bar(100, w.ws_col / 4, '#') << " – 100 % – Done!" << std::endl;
+	std::cout << loading_bar(100, colnum, '#') << " – 100 % – Done!" << std::endl;
 	std::cout << "Map generated! Saving…" << std::endl;
 	
 	rt.display();
