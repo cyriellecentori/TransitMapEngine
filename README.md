@@ -64,13 +64,20 @@ name-rotation: 0 # (Optional, 0 if not specified) Rotation of the name label aro
 The origin can be automatically determined from the name placement, but it can be a bit tricky. At the top of the stop, the anchor will be at the bottom of the text, at the bottom, on the top, and if its next to, then the anchor is in the middle. The same logic is applied to the left-right axis. Only 0 counts as the middle. If you encounter difficulties with the name placement, don’t hesitate to manually set the label’s origin. However, this automatic name origin should be enough for most of your basic stops.
 
 ### Generation
-When you have these two files ready, you only have to build and launche the program and indicate the path of the YAML file in the first argument. For Linux :
+When you have these two files ready, you only have to build (if not already done) and launch the program and indicate the path of the YAML file in the first argument. List of the commands:
 ```
-./build.sh
+g++ -c -o tme.o tme.cpp -std=c++20 -O5
+cd styles
+g++ -c -o RoundedRectangleShape.o RoundedRectangleShape.cpp -std=c++20 -O5
+g++ -c -o Default.o Default.cpp -std=c++20 -O5
+cd ..
+g++ -o tme tme.o styles/Default.o styles/RoundedRectangleShape.o -lsfml-system -lsfml-graphics -lyaml-cpp -O5
 ./tme file.yml
 ```
 
-Windows coming soon… eventually.
+For Linux, you have `./build.sh` which can build the program for you (you still have to launch it afterwards).
+
+For Windows, I recommand using the already built program in the releases section. If you want to build it yourself, don’t forget to change `-o tme` by `-o tme.exe` and indicate the directory containing the libraries and the included files if they’re not in the PATH.
 
 ## Development
 I consider this program to be mainly finished, but I might add some new features in the future (like rivers and parks for instance). This is not the project I’m mainly focused on though, so don’t expect it coming soon. However, you can submit modifications (improvements, bug fixes, new features) and I might add them to the engine. You can also fork this and create your own engine from it, as long as you respect the licence.
