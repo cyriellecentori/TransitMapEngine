@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
 	}
 
 	TME::Main main{std::string(argv[1])};
-	return 0;
+	return main();
 }
 
 std::string loading_bar(int percent, int size, char character) {
@@ -64,7 +64,9 @@ std::list<int> oddeven_sort(std::list<int> const& tab) {
 namespace TME {
 
 Main::Main(std::string const& file)
-	: data(YAML::LoadFile(file)) {
+	: data(YAML::LoadFile(file)) { }
+
+int Main::operator()() {
 	
 	std::map<std::string, YAML::Node> styles_yaml = data["styles"].as<std::map<std::string, YAML::Node> >();
 	
@@ -86,8 +88,15 @@ Main::Main(std::string const& file)
 	std::cout << "Loading lines map…" << std::endl;
 	
 	sf::Image img = sf::Image();
-	img.loadFromFile(data["map"].as<std::string>());
-	font.loadFromFile(data["font"]["path"].as<std::string>());
+	if(!img.loadFromFile(data["map"].as<std::string>())) {
+		std::cerr << "The image could not be loaded." << std::endl;
+		return 1;
+	}
+	
+	if(!font.loadFromFile(data["font"]["path"].as<std::string>())) {
+		std::cerr << "The font could not be loaded." << std::endl;
+		return 2;
+	}
 
 	std::cout << "File loaded, identifying lines and extracting map data…" << std::endl;
 	
@@ -232,6 +241,22 @@ Main::Main(std::string const& file)
 	YAML::Node stops = data["stops"];
 	int itor = 0;
 	
+	
+	sf::Vector2f default_name_placement = sf::Vector2f(0, 0);
+	sf::Vector2f default_name_origin = sf::Vector2f(0, 0);
+	float default_name_rotation = 0.0f;
+	if(data["default values"]) {
+		if(data["default values"]["name-placement"]) {
+			default_name_placement = sf::Vector2f(data["default values"]["name-placement"][0].as<float>(), data["default values"]["name-placement"][1].as<float>());
+		}
+		if(data["default values"]["name-origin"]) {
+			default_name_origin = sf::Vector2f(data["default values"]["name-origin"][0].as<float>(), data["default values"]["name-origin"][1].as<float>());
+		}
+		if(data["default values"]["name-rotation"]) {
+			default_name_rotation = data["default values"]["name-rotation"].as<float>();
+		}
+	}
+	
 	for(YAML::Node stop : stops) {
 		int percent = round((itor / stops.size()) * 100);
 		itor++;
@@ -266,10 +291,20 @@ Main::Main(std::string const& file)
 			stop_name.setOutlineColor(text_color);
 			
 			sf::Vector2f origin = sf::Vector2f(0, 0);
-			sf::Vector2f name_placement = sf::Vector2f(stop["name-placement"][0].as<float>(), stop["name-placement"][1].as<float>());
+			sf::Vector2f name_placement = sf::Vector2f(0,0);
+			if(stop["name-placement"])
+				name_placement = sf::Vector2f(stop["name-placement"][0].as<float>(), stop["name-placement"][1].as<float>());
+			else if(data["default values"] ? (bool) data["default values"]["name-placement"] : false)
+				name_placement = default_name_placement;
+			else
+				std::cout << "Warning: stop " << str << " does not have a defined position. Defaulting to (0,0)." << std::endl;
+			
 			if(stop["name-origin"]) {
 				origin.x = stop["name-origin"][0].as<float>() * stop_name.getLocalBounds().width;
 				origin.y = stop["name-origin"][1].as<float>() * stop_name.getLocalBounds().height;
+			} else if(data["default values"] ? (bool) data["default values"]["name-origin"] : false) {
+				origin.x = default_name_origin.x * stop_name.getLocalBounds().width;
+				origin.y = default_name_origin.y * stop_name.getLocalBounds().height;
 			} else {
 				if(name_placement.x < 0) {
 				origin.x = stop_name.getLocalBounds().width + scale.x / 5.0f;
@@ -290,6 +325,8 @@ Main::Main(std::string const& file)
 			
 			if(stop["name-rotation"]) {
 				stop_name.setRotation(stop["name-rotation"].as<float>());
+			} else if(data["default values"] ? (bool) data["default values"]["name-rotation"] : false) {
+				stop_name.setRotation(default_name_rotation);
 			}
 			
 			stop_name.setOrigin(origin);
@@ -312,6 +349,8 @@ Main::Main(std::string const& file)
 	for(auto style : styles) {
 		delete(style.second);
 	}
+	
+	return 0;
 	
 }
 

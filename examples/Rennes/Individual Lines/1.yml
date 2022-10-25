@@ -1,0 +1,73 @@
+scale: [50, 50]
+
+styles:
+   default:
+      type: default
+      stop size: 1.5
+      line width: 0.5
+
+font:
+   path: examples/Rennes/Louis George Cafe.ttf
+   size: 50
+   color: [0,0,0]
+output: examples/Rennes/Individual Lines/output-1.png
+
+map: examples/Rennes/Individual Lines/1.png
+
+default values:
+   name-placement: [0.3, -1.3]
+   name-origin: [0, 0.5]
+   name-rotation: -45
+
+stops: 
+   - position: [1,7]
+     type: terminus
+     name: Les Petites Cours
+   - position: [6, 7]
+     type: single
+     name: "Gayeulles\nJardins"
+   - position: [11, 7]
+     type: transfer
+     name: "Gayeulles\nSud"
+   - position: [16, 7]
+     type: transfer
+     name: Joliot-Curie
+   - position: [21, 7]
+     type: single
+     name: Maurepas
+   - position: [26, 7]
+     type: transfer
+     name: "Stade\nCourtemanche"
+   - position: [31, 7]
+     type: single
+     name: Fougères
+   - position: [36, 7]
+     type: single
+     name: Fac de Droit
+   - position: [41, 7]
+     type: transfer
+     name: Lesage — Sévigné
+   - position: [46, 7]
+     type: single
+     name: Préfecture
+   - position: [51, 7]
+     type: transfer
+     name: "Parlement\nde Bretagne"
+   - position: [56, 7]
+     type: transfer
+     name: République
+   - position: [61, 7]
+     type: transfer
+     name: Champ de Mars
+   - position: [66, 7]
+     type: transfer
+     name: Gares
+   - position: [71, 7]
+     type: transfer
+     name: "Clémenceau\nLa Boulais"
+   - position: [76, 7]
+     type: single
+     name: Argonautes
+   - position: [81, 7]
+     type: terminus
+     name: Porte de Nantes

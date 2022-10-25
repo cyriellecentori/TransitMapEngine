@@ -37,7 +37,7 @@ namespace TME {
 class Main {
 	public:
 		Main(std::string const& file);
-		
+		int operator()();
 	private:
 		const YAML::Node data;
 		std::vector<std::vector<int> > map = std::vector<std::vector<int> >();
