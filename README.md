@@ -4,7 +4,7 @@ This program is an engine that can easily generate public transport maps from a 
 
 ## Manual
 
-You’ll need two files to generate a transport map: a 1 pixel 1 square image in a PIL compatible format (png for instance) and a YAML file (also works with JSON since YAML is compatible).
+You’ll need two files to generate a transport map: a 1 pixel 1 square image and a YAML file (also works with JSON since YAML is compatible).
 
 ### Image
 The image will contain the 2D map. One pixel represent one square whose size can be defined in the YAML file. You can then draw your lines on the map with one pixel width. Each pixel defines a square, that you can connect to trace lines. The color of the pixel will define the color of the line. However, there are two special colors you can’t use for lines:
@@ -64,10 +64,13 @@ name-rotation: 0 # (Optional, 0 if not specified) Rotation of the name label aro
 The origin can be automatically determined from the name placement, but it can be a bit tricky. At the top of the stop, the anchor will be at the bottom of the text, at the bottom, on the top, and if its next to, then the anchor is in the middle. The same logic is applied to the left-right axis. Only 0 counts as the middle. If you encounter difficulties with the name placement, don’t hesitate to manually set the label’s origin. However, this automatic name origin should be enough for most of your basic stops.
 
 ### Generation
-When you have these two files ready, you only have to launch the Python script and indicate the path of the YAML file in the first argument.
+When you have these two files ready, you only have to build and launche the program and indicate the path of the YAML file in the first argument. For Linux :
 ```
-python tme.py file.yml
+./build.sh
+./tme file.yml
 ```
+
+Windows coming soon… eventually.
 
 ## Development
 I consider this program to be mainly finished, but I might add some new features in the future (like rivers and parks for instance). This is not the project I’m mainly focused on though, so don’t expect it coming soon. However, you can submit modifications (improvements, bug fixes, new features) and I might add them to the engine. You can also fork this and create your own engine from it, as long as you respect the licence.
