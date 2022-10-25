@@ -1,6 +1,11 @@
 scale: [50, 50]
-width: 0.5
-stop-size: 1.5
+
+styles:
+   default:
+      type: default
+      stop size: 1.5
+      line width: 0.5
+
 font:
    path: examples/Rennes/Louis George Cafe.ttf
    size: 50
@@ -203,7 +208,9 @@ stops:
    - position: [71, 82]
      type: transfer
      name: Square Tannou
-     name-placement: [-1.5, 0.25]
+     name-placement: [0.25, -1.60]
+     name-origin: [1, 0]
+     name-rotation: 45
    - position: [57, 82]
      type: single
      name: Anatole France

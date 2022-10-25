@@ -15,8 +15,19 @@ The image will contain the 2D map. One pixel represent one square whose size can
 The YAML file contains the parameters used to build the final image and a list of every station or stop. Here is a example:
 ```yaml
 scale: [50, 50] # The size (in pixels) of a square (1px in the map image will have this size in the final image).
-width: 0.5 # The width of a line, in fraction of the total square. 1 means the line will take the entire square. You can have values greater than 1 (which means the line will be wider than a square).
-stop-size: 1.5 # The radius of a stop circle, in fraction of the total square. Works like above.
+styles: # A list of different line styles. For now, only the "default" type is available.
+    default: # Name of the defined style. A style named "default" must be defined for every line that doesn’t have a specified style.
+        type: default # Type of the style. The parameters you’ll have to specify depend of it.
+        line width: 0.5 # The width of a line, in fraction of the total square. 1 means the line will take the entire square. You can have values greater than 1 (which means the line will be wider than a square).
+        stop size: 1.5 # The radius of a stop circle, in fraction of the total square. Works like above.
+    trains: # Example of an other style
+        type: default
+        line width: 0.8
+        stop size: 1.5
+        lines: # Is ignored with "default" style, but must be defined for every other style
+            - FF0000 # Color of a line to which the style will apply
+            - 28FF28 # Color of a line to which the style will apply
+
 font: # Contains font-related data
    path: font.ttf # Path to the font
    size: 50 # Text size
@@ -29,6 +40,9 @@ stops: # Array containing all stations or stops, see examples next
      type: single # One of the types above
      name: Stadium # The name of the station. You can add another line if you surround the name with "" and separate the two lines with \n
      name-placement: [1, 0] # The position of the name, in squares, relative to the center of the stop. More details next.
+     name-placement: [1, 0] # The position of the name, in squares, relative to the center of the stop. If name-origin is not specified, the origin is automatically set (more details below).
+     name-origin: [0, 0.3] # (Optional, automatic if not specified) Origin of the name label. The numer entered is multiplied by the width (if x) or height (if y) of the name label. [0,0] means top-left, [1, 1] means bottom-right.
+     name-rotation: 0 # (Optional, 0 if not specified) Rotation of the name label around the origin, in degrees. 
 ```
 
 #### Stops (or stations)
@@ -43,9 +57,11 @@ A stop has to be coded in this format (the fields can be in any order):
 position: [10, 23] # Position in squares (you can report the position of the pixel in the map image on which you want to add the stop). If the stop is large, your position field should look like something like [10, 23, 12, 25] ([x1, y1, x2, y2]).
 type: single # One of the types above
 name: Stadium # The name of the station. You can add another line if you surround the name with "" and separate the two lines with \n
-name-placement: [1, 0] # The position of the name, in squares, relative to the center of the stop. More details next.
+name-placement: [1, 0] # The position of the name, in squares, relative to the center of the stop. If name-origin is not specified, the origin is automatically set (more details below).
+name-origin: [0, 0.3] # (Optional, automatic if not specified) Origin of the name label. The numer entered is multiplied by the width (if x) or height (if y) of the name label. [0,0] means top-left, [1, 1] means bottom-right.
+name-rotation: 0 # (Optional, 0 if not specified) Rotation of the name label around the origin, in degrees. 
 ```
-The name placement can be a bit tricky because the position changes the text anchor. At the top of the stop, the anchor will be at the bottom of the text, at the bottom, on the top, and if its next to, then the anchor is in the middle. The same logic is applied to the left-right axis. Only 0 counts as the middle.ç
+The origin can be automatically determined from the name placement, but it can be a bit tricky. At the top of the stop, the anchor will be at the bottom of the text, at the bottom, on the top, and if its next to, then the anchor is in the middle. The same logic is applied to the left-right axis. Only 0 counts as the middle. If you encounter difficulties with the name placement, don’t hesitate to manually set the label’s origin. However, this automatic name origin should be enough for most of your basic stops.
 
 ### Generation
 When you have these two files ready, you only have to launch the Python script and indicate the path of the YAML file in the first argument.
