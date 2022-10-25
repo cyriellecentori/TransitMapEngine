@@ -22,7 +22,7 @@ bool contains(std::vector<T> const& v, T const& o) {
 
 template<class T>
 int find(std::vector<T> const& v, T const& o) {
-	for(int i = 0; i < v.size(); i++) {
+	for(typename std::vector<T>::size_type i = 0; i < v.size(); i++) {
 		if(v[i] == o) {
 			return i;
 		}

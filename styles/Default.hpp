@@ -31,8 +31,7 @@ protected:
 	sf::RectangleShape _rect_od;
 	
 	sf::CircleShape _terminus_dot;
-	sf::CircleShape _transfer_station_bg;
-	sf::CircleShape _transfer_station_fg;
+	sf::CircleShape _transfer_station;
 	sf::CircleShape _simple_station;
 	sf::CircleShape _center_circle;
 	

@@ -149,8 +149,8 @@ Main::Main(std::string const& file)
 	
 	std::cout << "Generating map…" << std::endl;
 	
-	for(int x = 0; x < img.getSize().x; x++) {
-		for(int y = 0; y < img.getSize().y; y++) {
+	for(unsigned int x = 0; x < img.getSize().x; x++) {
+		for(unsigned int y = 0; y < img.getSize().y; y++) {
 			int percent = round((((img.getSize().x * x - 1) + y) / (img.getSize().y * img.getSize().x)) * 100);
 			std::cout << loading_bar(percent, colnum, '#') << " – " << std::setw(3) << percent << " %\r";
 			
@@ -167,7 +167,8 @@ Main::Main(std::string const& file)
 				
 				std::map<int, std::vector<int> > coorlock; // Locks possibilities so there is at least 90° between each line of a same color.
 				
-				for(int i = 0,c = ids[0]; i < 7; i++, c = ids[i]) {
+				for(int i = 0; i < 7; i++) {
+					int c = ids[i];
 					int s_x = c / 3 - 1, s_y = c % 3 - 1;
 					for(int d : oddeven_sort(range(8 - c))) {
 						int c_ = 8 - d;

@@ -20,6 +20,7 @@ public:
 	virtual void draw_station_large(sf::RenderTexture& rt, sf::Vector2f const& origin, sf::Vector2f const& destination) = 0;
 	virtual void draw_station_terminus(sf::RenderTexture& rt, sf::Color const& line, sf::Vector2f const& position) = 0;
 	virtual void draw_center_circle(sf::RenderTexture& rt, sf::Color const& line, sf::Vector2f const& position) = 0;
+	virtual ~Style() = default;
 	
 protected:
 	const sf::Vector2f _scale;
